@@ -1,33 +1,27 @@
-version: '3.3'
+version: '3'
 services:
-  database:
-    image: mysql:latest
-    volumes:
-       - db_data:/var/lib/mysql
+  db:
+    build: ./db
     environment:
-      MYSQL_DATABASE: 'nusmoney-api'
-      MYSQL_ROOT_PASSWORD: 'password'
+      MYSQL_DATABASE: nusmoney
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_USER: mysql
+      MYSQL_PASSWORD: password
+      DATABASE_HOST: db
 
   app:
     build: 
       context: .
       dockerfile: Dockerfile
     image: nusmoney-api
+    environment:
+      DATABASE_HOST: db
+      MYSQL_PORT: 3306
+      MYSQL_DATABASE: nusmoney
+      MYSQL_USER: mysql
+      MYSQL_PASSWORD: password
     ports:
       - "8080:8080"
-    working_dir: /nodejs-api
-    volumes:
-      - ./:/nodejs-api
-    environment:
-      MYSQL_HOST: mysql
-      MYSQL_USER: root
-      MYSQL_PASSWORD: password
-      MYSQL_DB: nusmoney-api
     depends_on:
-      - database
-    links: 
-      - database
+      - db
     restart: on-failure
-# Names our volume
-volumes:
-  db_data: {}

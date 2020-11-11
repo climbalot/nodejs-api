@@ -2,10 +2,11 @@ const mysql = require("mysql"); // import mysql package to interact with the MyS
 
 // define parameters for MySQL connection
 parameters = {
-    host: "database",
-    user: "root", // username for login
-    password: "password", // password for login
-    database: "nusmoney", // database to use to execute queries
+    host: process.env.DATABASE_HOST,
+    port: process.env.MYSQL_PORT,
+    user: process.env.MYSQL_USER,
+    password: process.env.MYSQL_PASSWORD, // password for login
+    database: process.env.MYSQL_DATABASE // database to use to execute queries
   };
   
   // define the connection

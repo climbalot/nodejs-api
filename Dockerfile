@@ -12,6 +12,7 @@ RUN npm install express --save
 RUN npm install cors --save
 RUN npm install mysql
 RUN useradd -ms /bin/bash user
+COPY db/ /home/user/db/
 COPY server.js /home/user/server.js
 COPY database.js /home/user/database.js
 COPY start.sh /home/user/start.sh
