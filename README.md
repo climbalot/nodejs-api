@@ -1,5 +1,6 @@
-# Currency Exchange API – NodeJS
+# NUSmoney API with Docker
 
-docker run -d -p 8080:8080 u1ih/nodejs-api
+pushed to https://hub.docker.com/r/florencelry/nusdevops
 
-curl -i http://localhost:8080/fx
+To run this repository:
+`docker run -d -p 8080:8080 --network="host" florencelry/nusdevops`

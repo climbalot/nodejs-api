@@ -2,8 +2,7 @@ const mysql = require("mysql"); // import mysql package to interact with the MyS
 
 // define parameters for MySQL connection
 parameters = {
-    host: "127.0.0.1", // address where the mysql server is running
-    port: 3306, // port where the mysql server is running
+    host: "database",
     user: "root", // username for login
     password: "password", // password for login
     database: "nusmoney", // database to use to execute queries
