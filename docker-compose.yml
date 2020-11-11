@@ -1,7 +1,8 @@
 version: '3'
 services:
   db:
-    build: ./db
+    image: florencelry/nusdevops:mysql
+    # build: ./db
     environment:
       MYSQL_DATABASE: nusmoney
       MYSQL_ROOT_PASSWORD: password
@@ -10,9 +11,10 @@ services:
       DATABASE_HOST: db
 
   app:
-    build: 
-      context: .
-      dockerfile: Dockerfile
+    # build: 
+    #   context: .
+    #   dockerfile: Dockerfile
+    image: florencelry/nusdevops:latest
     image: nusmoney-api
     environment:
       DATABASE_HOST: db
