@@ -15,7 +15,6 @@ services:
     #   context: .
     #   dockerfile: Dockerfile
     image: florencelry/nusdevops:latest
-    image: nusmoney-api
     environment:
       DATABASE_HOST: db
       MYSQL_PORT: 3306
