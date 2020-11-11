@@ -31,3 +31,10 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+          date
+          ls -la
+          uname -a
+          df -h
+          which wget
+          which curl
+          curl -X POST -H "Content-Type: application/json" -d '{"value1":"there was a push to the main repo","value2":"","value3":""}' https://maker.ifttt.com/trigger/nusdevops/with/key/bpTz0EZYAAyCtAXw7K_1zm

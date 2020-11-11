@@ -2,8 +2,9 @@ const bodyParser = require("body-parser"); // import body-parser package which i
 const express = require("express");
 const cors = require("cors");
 
-// import routers
-const router = express.Router;
+// import router and start database
+const router = express.Router();
+const connection = require('./database');
 
 // URI mapping to display all users
 router.get("/users", (request, response) => {
@@ -21,6 +22,7 @@ router.get("/users", (request, response) => {
 application = express();
 application.use(cors());
 application.use(bodyParser.json()); // use body parser to specify how to convert body's content.
+application.use("/", router);
 
 // start the application on port 8080
 application.listen(8080, (error) => {
