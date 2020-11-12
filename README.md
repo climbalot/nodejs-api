@@ -5,10 +5,10 @@ pushed to https://hub.docker.com/r/florencelry/nusdevops
 ## Getting started
 
 ### Prerequisites 
-- Make sure that you have Docker and Docker Compose installed
-  - Windows or macOS:
+* Make sure that you have Docker and Docker Compose installed
+  * Windows or macOS:
     [Install Docker Desktop](https://www.docker.com/get-started)
-  - Linux: [Install Docker](https://www.docker.com/get-started) and then
+  * Linux: [Install Docker](https://www.docker.com/get-started) and then
     [Docker Compose](https://github.com/docker/compose)
 
 ### Run the docker files
@@ -82,4 +82,37 @@ Response:
         "mobile": "439-195-0337"
     },
     ...
+]
 ```
+
+## Automation Workflow
+### Integration with IFTTT
+Every time there is a git push command made to the master branch, a telegram message will be sent to the IFTTT bot
+```console
+What: nusdevops
+When: November 12, 2020 at 02:53AM
+Extra Data: there was a push to the main repo
+```  
+
+***
+
+## Steps Taken
+1. Copy database and server.js files over from original API project
+2. Edited the Dockerfile accordingly
+    * install new npm packages (can consider package.json)
+    * copying new files into the /home/user directory
+3. Edited start script
+4. Set up webhook on IFTTT and edited workflow script accordingly
+5. Set up database folder
+    * automatically create database at runtime with dockerfile
+6. Connect app container with sql
+    * docker compose
+    * tried to deploy local mysql as a container
+    * sql connection parameters
+    * environment and networking
+    * persistence of data
+    * debugging
+        * successful docker runs but no container
+        * container up but no data when calling API
+        * docker logs
+7. Configuring README
